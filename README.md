@@ -2,6 +2,12 @@
 
 An end-to-end credit scoring and conversational data analytics platform trained on the Home Credit Default Risk dataset.
 
+## Live Deployment
+
+The application is deployed on Render: **[https://credit-risk-platform-nb63.onrender.com](https://credit-risk-platform-nb63.onrender.com/)**
+
+Note: Render's free tier spins down after inactivity — the first request after idle may take 30-60 seconds to wake the service.
+
 ## Architecture
 
 ```mermaid
@@ -75,11 +81,18 @@ pip install -r requirements.txt
 ```
 
 ### 2. Environment Configuration
-Export your LLM API credentials if using the Talk-to-Data feature:
+Copy `.env.example` to `.env` and set your credentials:
 ```bash
-export OPENAI_API_KEY="your-api-key"
-export LLM_PROVIDER="openai" # or "groq"
-export LLM_MODEL="gpt-4o-mini"
+cp .env.example .env
+```
+Required variables:
+```
+LLM_PROVIDER=groq          # or "openai"
+OPENAI_API_KEY=your-api-key
+LLM_MODEL=llama-3.3-70b-versatile
+DATA_DIR=./data
+MODELS_DIR=./models
+SQL_DB_PATH=./sql/credit_risk.db
 ```
 
 ### 3. Model Training & Evaluation
