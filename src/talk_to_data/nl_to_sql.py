@@ -102,7 +102,7 @@ def ask(question: str) -> dict:
 
 def narrate_shap_explanation(shap_contributions) -> str:
     top = shap_contributions.head(5)
-    summary_lines = [f'{feature}: {('+' if value > 0 else '')}{value:.3f}' for feature, value in top.items()]
+    summary_lines = [f"{feature}: {('+' if value > 0 else '')}{value:.3f}" for feature, value in top.items()]
     prompt = build_shap_narration_prompt('\n'.join(summary_lines))
     return _call_llm(prompt, temperature=0.2)
 SAMPLE_QUERIES = ['How many applicants fall into the High risk band?', 'What is the average income of applicants who defaulted?', 'Which education type has the highest default rate?', 'How many applicants have more than 2 prior loan applications?', 'What is the average credit amount for Low risk applicants?', 'What is the average credit card utilization for High risk applicants?']
