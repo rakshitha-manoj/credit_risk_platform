@@ -3,8 +3,7 @@ data/*
 !data/.gitkeep
 
 # Models - saved artifacts stay out of git, mounted/generated at runtime
-models/*.pkl
-models/*.joblib
+
 !models/.gitkeep
 
 # Python
