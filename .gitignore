@@ -1,0 +1,29 @@
+# Data - never commit the dataset
+data/*
+!data/.gitkeep
+
+# Models - saved artifacts stay out of git, mounted/generated at runtime
+models/*.pkl
+models/*.joblib
+!models/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Env files
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+
+# Logs
+*.log

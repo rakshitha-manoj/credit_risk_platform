@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  credit-risk-app:
+    build: .
+    ports:
+      - "${APP_PORT:-8501}:8501"
+    env_file:
+      - .env
+    environment:
+      - DATA_DIR=/app/data
+      - MODELS_DIR=/app/models
+      - SQL_DB_PATH=/app/sql/credit_risk.db
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./sql:/app/sql
+      - ./notebooks:/app/notebooks
+      - ./src:/app/src
+      - ./app.py:/app/app.py
+    restart: unless-stopped
